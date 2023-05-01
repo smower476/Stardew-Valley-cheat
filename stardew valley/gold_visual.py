@@ -1,5 +1,7 @@
 from pymem import *
 from pymem.process import *
+
+#Maksos
  
 pm = pymem.Pymem("Stardew Valley.exe")
  
