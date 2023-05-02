@@ -1,6 +1,5 @@
 from pymem import *
 from pymem.process import *
-# asdsa
 
 
 pm = pymem.Pymem("Stardew Valley.exe")
