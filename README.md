@@ -5,5 +5,3 @@ Includes:
 
 <li> Stamina lock
 <li> Change gold proc
-
-@Copyright MrAntonS
