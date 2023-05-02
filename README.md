@@ -3,4 +3,7 @@
 Use only ``GUI.py`` file
 Includes:
 
-<li>Stamina lock
+<li> Stamina lock
+<li> Change gold proc
+
+@Copyright MrAntonS
