@@ -83,8 +83,10 @@ def switch():
     enabled = not enabled
     
 def button_validation():
-    if 1=1:
-        return break    
+    if is_valid(entry.get()):
+        real_money.WriteValue(int(entry.get()))
+    else:
+        pass
 
     
     
@@ -97,7 +99,7 @@ entry.pack(anchor=NW, padx=6, pady=6)
 
 
 
-btn = ttk.Button(text="Change Money", command=lambda: (button_validation, real_money.WriteValue(int(entry.get()))))
+btn = ttk.Button(text="Change Money", command=button_validation)
 btn.pack(anchor=NW, padx=6, pady=6)
 
 errmsg = StringVar()
