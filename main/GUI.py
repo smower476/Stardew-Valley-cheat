@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter import ttk
 from pymem import *
 from pymem.process import *
-#import time
 import re
 import threading
 pm = pymem.Pymem("Stardew Valley.exe")
