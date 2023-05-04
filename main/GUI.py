@@ -2,10 +2,15 @@ from tkinter import *
 from tkinter import ttk
 from pymem import *
 from pymem.process import *
-import time
+#import time
+import re
 import threading
 pm = pymem.Pymem("Stardew Valley.exe")
 import random
+
+def is_valid(newval):
+    return re.match("\d{0,9}$", newval) is not None
+
 class Pointer():
     def __init__(self, dll, dll_offset, offsets, process_module, read_method, write_method):
         self.dll_offset = dll_offset
@@ -51,6 +56,8 @@ window = Tk()
 window.title('Stardew Valley Trainer +2')
 window.geometry('400x300')
 
+check = (window.register(is_valid), "%P")
+
 enabled = False
 HHH = 0
 def checkbutton_changed():
@@ -76,7 +83,7 @@ var = IntVar()
 enabled_checkbutton = ttk.Checkbutton(text="stamina hack", command = switch, variable=var)
 enabled_checkbutton.pack(padx=6, pady=6, anchor=NW)
 
-entry = ttk.Entry()
+entry = ttk.Entry(validate="key", validatecommand=check)
 entry.pack(anchor=NW, padx=6, pady=6)
 
 
