@@ -10,7 +10,9 @@ import random
 def is_valid(newval):
     result=  re.match("\d{0,9}$", newval) is not None
     if not result:
-        errmsg.set("Max 9 numbers")
+        errmsg.set("the field can only contain numbers, and no more than 9")
+    elif len(newval) == 0:
+        errmsg.set("The field must contain at least 1 number")
     else:
         errmsg.set("")
     return result
@@ -80,17 +82,24 @@ def switch():
     global enabled
     enabled = not enabled
     
+def button_validation(entry_str,proc):
+    if entry_str!='':
+        proc(int(entry.get()))
+        
+    else:
+        is_valid(entry_str)
     
     
 var = IntVar()
 enabled_checkbutton = ttk.Checkbutton(text="stamina hack", command = switch, variable=var)
 enabled_checkbutton.pack(padx=6, pady=6, anchor=NW)
 
-entry = ttk.Entry(validate="key", validatecommand=check)
+entry = ttk.Entry(validate="all", validatecommand=check)
 entry.pack(anchor=NW, padx=6, pady=6)
 
 
-btn = ttk.Button(text="Change Money", command=lambda: real_money.WriteValue(int(entry.get())))
+
+btn = ttk.Button(text="Change Money", command=lambda: button_validation(entry.get(),real_money.WriteValue)) 
 btn.pack(anchor=NW, padx=6, pady=6)
 
 errmsg = StringVar()
