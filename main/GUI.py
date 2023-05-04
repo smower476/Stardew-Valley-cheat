@@ -8,7 +8,12 @@ pm = pymem.Pymem("Stardew Valley.exe")
 import random
 
 def is_valid(newval):
-    return re.match("\d{0,9}$", newval) is not None
+    result=  re.match("\d{0,9}$", newval) is not None
+    if not result:
+        errmsg.set("Max 9 numbers")
+    else:
+        errmsg.set("")
+    return result
 
 class Pointer():
     def __init__(self, dll, dll_offset, offsets, process_module, read_method, write_method):
@@ -78,7 +83,6 @@ def switch():
     
     
 var = IntVar()
-
 enabled_checkbutton = ttk.Checkbutton(text="stamina hack", command = switch, variable=var)
 enabled_checkbutton.pack(padx=6, pady=6, anchor=NW)
 
@@ -89,6 +93,9 @@ entry.pack(anchor=NW, padx=6, pady=6)
 btn = ttk.Button(text="Change Money", command=lambda: real_money.WriteValue(int(entry.get())))
 btn.pack(anchor=NW, padx=6, pady=6)
 
+errmsg = StringVar()
+error_label = ttk.Label(foreground="red", textvariable=errmsg, wraplength=250)
+error_label.pack(padx=5, pady=5, anchor=NW)
 
 th = threading.Thread(target=checkbutton_changed)
 th.start()
