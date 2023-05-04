@@ -18,7 +18,7 @@ def is_valid(newval):
     return result
 
 class Pointer():
-    def __init__(self, dll, dll_offset, offsets, process_module, read_method, write_method):
+    def __init__(self, dll, dll_offset, offsets, read_method, write_method):
         self.dll_offset = dll_offset
         self.offsets = offsets
         self.gamemodule = module_from_name(pm.process_handle, dll).lpBaseOfDll
@@ -43,17 +43,17 @@ dll = "System.Linq.dll"
 dll_offset = 0x00003048
 offsets = [0x8, 0x30, 0x78, 0x10, 0x174, 0x18, 0x458, 0x44]
 #read_bytes(self, address, length)
-stamina = Pointer(dll, dll_offset, offsets, pm, pm.read_float, pm.write_float)
+stamina = Pointer(dll, dll_offset, offsets, pm.read_float, pm.write_float)
 
 dll = "System.Private.Xml.dll" 
 dll_offset = 0x22D48
 offsets = [0x0, 0x20, 0x60, 0x88, 0xC0, 0x60, 0x1C]
-visual_money = Pointer(dll, dll_offset, offsets, pm, pm.read_int, pm.write_int)
+visual_money = Pointer(dll, dll_offset, offsets, pm.read_int, pm.write_int)
 
 dll = "coreclr.dll" 
 dll_offset = 0x004A82C8
 offsets = [0x18, 0xC8, 0x28, 0x8, 0x10, 0x450, 0xD8, 0x44]
-real_money = Pointer(dll, dll_offset, offsets, pm, pm.read_int, pm.write_int)
+real_money = Pointer(dll, dll_offset, offsets, pm.read_int, pm.write_int)
 
 
 
