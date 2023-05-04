@@ -4,9 +4,9 @@ from pymem import *
 from pymem.process import *
 import re
 import threading
-pm = pymem.Pymem("Stardew Valley.exe")
 import random
 
+pm = pymem.Pymem("Stardew Valley.exe")
 def is_valid(newval):
     result=  re.match("\d{0,9}$", newval) is not None
     if not result:
@@ -93,7 +93,7 @@ entry.pack(anchor=NW, padx=6, pady=6)
 
 
 
-btn = ttk.Button(text="Change Money", command=lambda: real_money.WriteValue(int(entry.get())) if is_valid(entry.get()))
+btn = ttk.Button(text="Change Money", command=lambda: real_money.WriteValue(int(entry.get())) if is_valid(entry.get()) else False)
 btn.pack(anchor=NW, padx=6, pady=6)
 
 errmsg = StringVar()
