@@ -82,12 +82,10 @@ def switch():
     global enabled
     enabled = not enabled
     
-def button_validation(entry_str,proc):
-    if entry_str!='':
-        proc(int(entry.get()))
-        
-    else:
-        is_valid(entry_str)
+def button_validation():
+    if 1=1:
+        return break    
+
     
     
 var = IntVar()
@@ -99,7 +97,7 @@ entry.pack(anchor=NW, padx=6, pady=6)
 
 
 
-btn = ttk.Button(text="Change Money", command=lambda: button_validation(entry.get(),real_money.WriteValue)) 
+btn = ttk.Button(text="Change Money", command=lambda: (button_validation, real_money.WriteValue(int(entry.get()))))
 btn.pack(anchor=NW, padx=6, pady=6)
 
 errmsg = StringVar()
