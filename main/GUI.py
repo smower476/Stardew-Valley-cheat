@@ -69,7 +69,7 @@ HHH = 0
 def checkbutton_changed():
     global HHH
     while True:
-        if HHH == 1:
+        if HHH:
             break
         if enabled: 
                 #real_money.WriteValue((max(real_money.readValue() + random.randint(-102,100),0)))
@@ -103,4 +103,4 @@ error_label.pack(padx=5, pady=5, anchor=NW)
 th = threading.Thread(target=checkbutton_changed)
 th.start()
 window.mainloop()
-HHH = 1
+HHH = 2
